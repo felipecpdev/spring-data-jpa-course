@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    schema: classpath:/schema.sql
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/ecommerce?useSSL=false
+    username: postgres
+    password: nicand0
+    driverClassName: org.postgresql.Driver
