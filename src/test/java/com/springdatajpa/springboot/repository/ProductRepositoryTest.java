@@ -35,9 +35,9 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void updateUsingSaveMethod(){
+    void updateUsingSaveMethod() {
         //find or retrieve on entity
-        Long id= 1L;
+        Long id = 1L;
         Product product = productRepository.findById(id).get();
 
         //update entity information
@@ -49,13 +49,13 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void findByIdMethod(){
-        Long id= 1L;
-        Product product= productRepository.findById(id).get();
+    void findByIdMethod() {
+        Long id = 1L;
+        Product product = productRepository.findById(id).get();
     }
 
     @Test
-    void saveAllMethod(){
+    void saveAllMethod() {
 
         //create product
         Product product3 = new Product();
@@ -74,8 +74,53 @@ class ProductRepositoryTest {
         product4.setActive(true);
         product4.setImageUrl("product3.png");
 
-        productRepository.saveAll(List.of(product3,product4));
+        productRepository.saveAll(List.of(product3, product4));
     }
+
+    @Test
+    void findAllMethod() {
+        List<Product> products = productRepository.findAll();
+
+        products.forEach(product -> System.out.println(product.getName()));
+    }
+
+    @Test
+    void deleteByIdMethod() {
+        Long id = 1L;
+        productRepository.deleteById(id);
+    }
+
+    @Test
+    void deleteMethod() {
+        //find entity by id
+        Long id = 4L;
+        Product product = productRepository.findById(id).get();
+
+        //delete(entity)
+        productRepository.delete(product);
+    }
+
+    @Test
+    void deleteAllMethod() {
+//        productRepository.deleteAll();
+        List<Product> productList = productRepository.findAll();
+        productRepository.deleteAll(productList);
+    }
+
+    @Test
+    void countMethod(){
+        long count= productRepository.count();
+        System.out.println(count);
+    }
+
+    @Test
+    void existByIdMethod(){
+        Long id=2L;
+
+        boolean result= productRepository.existsById(id);
+        System.out.println(result);
+    }
+
 
 
 }
