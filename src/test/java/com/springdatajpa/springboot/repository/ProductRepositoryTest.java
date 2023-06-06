@@ -72,7 +72,7 @@ class ProductRepositoryTest {
         product4.setSku("104ABD");
         product4.setPrice(new BigDecimal(100));
         product4.setActive(true);
-        product4.setImageUrl("product3.png");
+        product4.setImageUrl("product4.png");
 
         productRepository.saveAll(List.of(product3, product4));
     }
@@ -108,19 +108,18 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void countMethod(){
-        long count= productRepository.count();
+    void countMethod() {
+        long count = productRepository.count();
         System.out.println(count);
     }
 
     @Test
-    void existByIdMethod(){
-        Long id=2L;
+    void existByIdMethod() {
+        Long id = 2L;
 
-        boolean result= productRepository.existsById(id);
+        boolean result = productRepository.existsById(id);
         System.out.println(result);
     }
-
 
 
 }
