@@ -14,19 +14,26 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Table(
-        name = "product",
-        uniqueConstraints = {
-                @UniqueConstraint(
-                        name = "sku_unique",
-                        columnNames = "stock_keeping_unit")
-        })
+@NamedQueries(
+        {
+                @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Product p where p.price=?1"),
+                @NamedQuery(name = "Product.findAllOrderByNameDesc", query = "SELECT p FROM Product p ORDER BY p.name desc")
+        }
+)
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Product.findByPriceNativeQuery",
+                query = "select * from product p where p.price=?1",
+                resultClass = Product.class
+        )
+})
+@Table(name = "product", uniqueConstraints = {@UniqueConstraint(name = "sku_unique", columnNames = "stock_keeping_unit")})
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "stock_keeping_unit",nullable = false)
+    @Column(name = "stock_keeping_unit", nullable = false)
     private String sku;
     @Column(nullable = false)
     private String name;

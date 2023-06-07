@@ -56,4 +56,13 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             nativeQuery = true)
     Product findByNameOrDescriptionSQLNamedParam(@Param("name") String name,
                                                  @Param("description") String description);
+
+    //NamedQuery
+    Product findByPrice(BigDecimal price);
+
+    List<Product> findAllOrderByNameDesc();
+
+    @Query(nativeQuery = true)
+    Product findByPriceNativeQuery(BigDecimal price);
+
 }

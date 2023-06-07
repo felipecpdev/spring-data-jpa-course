@@ -12,15 +12,16 @@ public class JPQLQueriesTest {
     private ProductRepository productRepository;
 
     @Test
-    void findByNameOrDescriptionJPQLIndexParamMethod(){
-        Product product= productRepository
-                .findByNameOrDescriptionJPQLIndexParam("product 3",null);
+    void findByNameOrDescriptionJPQLIndexParamMethod() {
+        Product product = productRepository
+                .findByNameOrDescriptionJPQLIndexParam("product 3", null);
         System.out.println(product.getName());
     }
+
     @Test
-    void findByNameOrDescriptionJPQLNamedParamMethod(){
-        Product product= productRepository
-                .findByNameOrDescriptionJPQLNamedParam("product 3",null);
+    void findByNameOrDescriptionJPQLNamedParamMethod() {
+        Product product = productRepository
+                .findByNameOrDescriptionJPQLNamedParam("product 3", null);
         System.out.println(product.getName());
     }
 }
