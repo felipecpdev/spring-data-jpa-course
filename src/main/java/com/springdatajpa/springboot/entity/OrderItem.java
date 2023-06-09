@@ -20,4 +20,8 @@ public class OrderItem {
     @OneToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id",referencedColumnName = "id")
+    private Order order;
 }
