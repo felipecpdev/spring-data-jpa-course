@@ -11,7 +11,7 @@ spring:
   datasource:
     schema: classpath:/schema.sql
     platform: postgres
-    url: jdbc:postgresql://localhost:5432/ecommerce?useSSL=false
+    url: jdbc:postgresql://localhost:5433/ecommerce?useSSL=false
     username: postgres
     password: nicand0
     driverClassName: org.postgresql.Driver
